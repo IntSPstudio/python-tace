@@ -2,7 +2,7 @@
 # Made by IntSPstudio
 # TaCe
 # Thank you for using this software!
-# Version: 0.0.1.20170226
+# Version: 0.0.2.20170419
 # ID: 980003004
 #
 # Twitter: @IntSPstudio
@@ -23,6 +23,7 @@ if __name__ == "__main__":
 	searchKeywordsID ="1"
 	userTweetsEventID ="2"
 	userGroupTweetsEventID ="3"
+	comDataFolder = engine.dataFolder
 	#INPUT
 	scrFile = sys.argv[0]
 	scrRuleTest = len(sys.argv)

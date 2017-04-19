@@ -12,6 +12,9 @@ import tweepy
 import it8c
 import authentication
 import string
+import os
+#SETTINGS
+dataFolder ="data"
 #AUTHENTICATION
 consumerKey = authentication.consumerKey
 consumerSecret = authentication.consumerSecret
@@ -45,7 +48,9 @@ def getUserTweetHistoryBasic(userName):
 			pointb = pointb + str(pointa[j])
 		userContent[i][2] = pointb
 	userNameBasic = str.lower(it8c.lettersdigits(userName,""))
-	userFileName = "tweethistory_"+ userNameBasic +".csv"
+	if not os.path.exists(dataFolder):
+		os.makedirs(dataFolder)
+	userFileName = dataFolder +"/tweethistory_"+ userNameBasic +".csv"
 	it8c.csvWriteFile(userContent,userFileName,";",0)
 	return userContent
 #SEARCH KEYWORDS
@@ -63,5 +68,7 @@ def searchKeywordsBasic(keyWord):
 			pointb = pointb + str(pointa[j])
 		outputArray[i] = str(pointb)
 	keywordNameBasic = str.lower(it8c.lettersdigits(keyWord,""))
-	keywordFileName = "keyword_"+ keywordNameBasic +".txt"
+	if not os.path.exists(dataFolder):
+		os.makedirs(dataFolder)
+	keywordFileName = dataFolder +"/keyword_"+ keywordNameBasic +".txt"
 	it8c.fileWriteTextList(outputArray,keywordFileName)
